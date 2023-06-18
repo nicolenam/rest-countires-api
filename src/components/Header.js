@@ -14,7 +14,7 @@ const Header = () =>{
     return(
         <header className={`${isDarkMode ? "darkMode" : "lightMode"}`}>
             <h1>Where in the world?</h1>
-            <div class="mode" onClick={handleClick}>
+            <div className="mode" onClick={handleClick}>
             {
                 isDarkMode ?
                 <>
