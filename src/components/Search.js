@@ -10,7 +10,6 @@ const Search = () =>{
                     <FontAwesomeIcon className="searchIcon" icon={faMagnifyingGlass} />
                     <input className="search" placeholder="Search for a country"></input>
                 </div>
-                {/* <Dropdown /> */}
             </form>
         </main>
     )
