@@ -1,21 +1,21 @@
 const Display = ({ countriesData }) => {
 
     return (
-        <div>
+        <div className="gridContainer">
             {
                 countriesData &&
                 (
                     countriesData.map((country)=>{
                         return(
-                            <div key={country.altSpellings[0]}>
+                            <div className="gridItem" key={country.altSpellings[0]}>
                                 <div>
-                                    <img src={country.flags.png} alt={country.flags.alt}/>
+                                    <img class="gridImg" src={country.flags.png} alt={country.flags.alt}/>
                                 </div>
-                                <div>
+                                <div className="gridContent">
                                     <h2>{country.name.official}</h2>
-                                    <p>Population: {country.population.toLocaleString()}</p>
-                                    <p>Region: {country.region}</p>
-                                    <p>Capital: {country.capital}</p>
+                                    <p><span>Population:</span> {country.population.toLocaleString()}</p>
+                                    <p><span>Region: </span>{country.region}</p>
+                                    <p><span>Capital: </span>{country.capital}</p>
                                 </div>
                             </div>
                         )
