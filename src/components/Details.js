@@ -58,7 +58,7 @@ const Details = () =>{
 
     return(
         <div className="detailsContainer">
-            <Link path="/">
+            <Link to="/">
                 <p className="backBtn">&larr; back</p>
             </Link>
             {
