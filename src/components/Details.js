@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { useEffect, useState } from 'react'; 
+import { Link } from 'react-router-dom';
 
 const Details = () =>{
 
@@ -57,6 +58,9 @@ const Details = () =>{
 
     return(
         <div className="detailsContainer">
+            <Link path="/">
+                <p className="backBtn">&larr; back</p>
+            </Link>
             {
                 isDetail && (
                 <>
