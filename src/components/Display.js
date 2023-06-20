@@ -44,7 +44,7 @@ const Display = ({ countriesData, isSelected }) => {
                 (
                     displayData.map((country)=>{
                         return(
-                            <Link to={`/${country.name.official}`} key={country.altSpellings[0]}>
+                            <Link to={`details/${country.name.official}`} key={country.altSpellings[0]}>
                                 <div className="gridItem">
                                     <div>
                                         <img className="gridImg" src={country.flags.png} alt={country.flags.alt}/>
@@ -64,7 +64,7 @@ const Display = ({ countriesData, isSelected }) => {
                 (
                     countriesData.map((country)=>{
                         return(
-                            <Link to={`/${country.name.official}`} key={country.altSpellings[0]}>
+                            <Link to={`details/${country.name.official}`} key={country.altSpellings[0]}>
 
                                 <div className="gridItem">
                                     <div>

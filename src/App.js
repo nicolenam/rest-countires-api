@@ -32,16 +32,20 @@ function App() {
 
   return (
     <div className="App">
+      <Header />
       <Router>
-        <Header />
-        <div className="filterContainer">
-          <Search setIsSelected={setIsSelected}/>
-          <Dropdown setIsSelected={setIsSelected}/>
-        </div>
         <Routes>
           <Route
             path="/"
-            element={<Display countriesData={countriesData} isSelected={isSelected} />}
+            element={
+              <>
+                <div className="filterContainer">
+                  <Search setIsSelected={setIsSelected} />
+                  <Dropdown setIsSelected={setIsSelected} />
+                </div>
+                <Display countriesData={countriesData} isSelected={isSelected} />
+              </>
+            }
           />
           <Route path="/details/:country" element={<Details />} />
         </Routes>
