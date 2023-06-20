@@ -31,9 +31,10 @@ const Display = ({ countriesData, isSelected }) => {
 
         if(isSelected === "america" || isSelected === "africa" || isSelected === "asia" || isSelected === "europe"){
             getRegionData();
-        }else{
+        }else if(isSelected){
             getCountryData();
         }
+        
     },[isSelected]);
 
     return (
