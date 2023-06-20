@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 
-const Dropdown = ({setRegion}) =>{
+const Dropdown = ({setIsSelected}) =>{
 
     const [isOpen, setIsOpen] = useState(false);
     const [selected, setSelected] = useState("Filter by Region");
@@ -15,7 +15,7 @@ const Dropdown = ({setRegion}) =>{
 
         const selectedId = e.target.id;
         setSelected(selectedId);
-        setRegion(selectedId);
+        setIsSelected(selectedId);
         setIsOpen(false);
     }
 

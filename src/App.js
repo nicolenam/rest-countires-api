@@ -9,7 +9,7 @@ import Display from './components/Display';
 function App() {
 
   const [countriesData, setCountriesData] = useState(null);
-  const [region, setRegion] = useState("");
+  const [isSelected, setIsSelected] = useState("");
 
   useEffect(()=>{
 
@@ -32,10 +32,10 @@ function App() {
     <div className="App">
       <Header />
       <div className="filterContainer">
-        <Search />
-        <Dropdown setRegion={setRegion}/>
+        <Search setIsSelected={setIsSelected}/>
+        <Dropdown setIsSelected={setIsSelected}/>
       </div>
-        <Display region={region} countriesData={countriesData}/>
+        <Display countriesData={countriesData} isSelected={isSelected}/>
     </div>
   );
 }

@@ -1,31 +1,46 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 
-const Display = ({ countriesData,region }) => {
+const Display = ({ countriesData, isSelected }) => {
 
-    const [ regionData, setRegionData ] = useState([]);
+    const [ displayData, setDisplayData ] = useState([]);
 
     useEffect(()=>{
+
         const getRegionData = async () =>{
     
             try{
-                const response = await axios.get(`https://restcountries.com/v3.1/region/${region}`);
-                setRegionData(response.data);
+                const response = await axios.get(`https://restcountries.com/v3.1/region/${isSelected}`);
+                setDisplayData(response.data);
             }
             catch (error) {
                 console.log(error)
             }
         }
-        if(region){
-            getRegionData();
+
+        const getCountryData = async () =>{
+
+            try{
+                const response = await axios(`https://restcountries.com/v3.1/name/${isSelected}`);
+                setDisplayData(response.data);
+            }
+            catch (error) {
+                console.log(error)
+            }
         }
-    },[region])
+
+        if(isSelected === "america" || isSelected === "africa" || isSelected === "asia" || isSelected === "europe"){
+            getRegionData();
+        }else{
+            getCountryData();
+        }
+    },[isSelected]);
 
     return (
         <div className="gridContainer">
-            {   region ?
+            {   isSelected ?
                 (
-                    regionData.map((country)=>{
+                    displayData.map((country)=>{
                         return(
                             <div className="gridItem" key={country.altSpellings[0]}>
                                 <div>
