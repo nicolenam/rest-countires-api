@@ -14,23 +14,38 @@ const Details = () =>{
             try{
                 const response = await axios.get(`https:restcountries.com/v3.1/name/${country}`);
                 const data = response.data[0];
+                console.log(data)
                 let currency;
+                let nativeName;
+                let languages = [];
 
                 for (const key in data.currencies) {
                     currency = data.currencies[key].symbol
                 }
 
+                for( const key in data.name.nativeName){
+                    nativeName = data.name.nativeName[key].common
+                }
+
+                for( const key in data.languages){
+                    languages.push(data.languages[key]);
+                }
+
                 const details = {
                     name: data.name.common,
+                    nativeName: nativeName,
                     capital: data.capital[0],
                     population: data.population,
-                    nativeName: data.name.nativeName,
                     url: data.flags.png,
                     region: data.region,
                     subregion: data.subregion,
-                    currency: currency
-
+                    currency: currency,
+                    borders: data.borders,
+                    languages: languages,
+                    tld: data.tld,
+                    alt: data.altSpellings[1]
                   };
+
                   setIsDetail(details);
             }
             catch (error) {
@@ -44,7 +59,30 @@ const Details = () =>{
         <div className="detailsContainer">
             {
                 isDetail && (
-                    <p>{isDetail.currency}</p>
+                <>
+                    <img src={isDetail.url} alt={isDetail.alt}/>
+                    <div className="detailsContent">
+                        <p>{isDetail.name}</p>
+                        <div className="columnContainer">
+                            <div className="firstColumn">
+                                <p><span>Native Name:</span> {isDetail.nativeName}</p>
+                                <p><span>Population:</span> {isDetail.population.toLocaleString()}</p>
+                                <p><span>Region:</span> {isDetail.region}</p>
+                                <p><span>Sub Region:</span> {isDetail.subregion}</p>
+                                <p><span>Capital:</span> {isDetail.capital}</p>
+                            </div>
+                            <div className="secondColumn">
+                                <p><span>Top Level Domain:</span> {isDetail.tld}</p>
+                                <p><span>Currencies:</span> {isDetail.currency}</p>
+                                <p><span>Languages:</span> {isDetail.languages.join(", ")}</p>
+                            </div>
+                        </div>
+                        {
+                            isDetail.borders &&
+                            <p><span>Border Countries:</span> {isDetail.borders.join(", ")}</p>
+                        }
+                    </div> 
+                </>
                 )
             }
         
@@ -53,18 +91,3 @@ const Details = () =>{
 }
 
 export default Details;
-
-{/* <img src={isDetail.flags.png}/>
-<div className="detailsContent">
-    <p>{isDetail.name}</p>
-    <div className="columnContainer">
-        <div className="firstColumn">
-            <p>Native Name: <span>{isDetail.name.nativeName.ita.official}</span></p>
-        </div>
-        <div className="secondColumn"></div>
-    </div>
-    <div>
-        Border Countries:
-       <span className="borderCountry">some country</span>
-    </div>
-</div> */}
