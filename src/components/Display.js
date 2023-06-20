@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const Display = ({ countriesData, isSelected }) => {
 
@@ -34,7 +35,7 @@ const Display = ({ countriesData, isSelected }) => {
         }else if(isSelected){
             getCountryData();
         }
-        
+
     },[isSelected]);
 
     return (
@@ -43,17 +44,19 @@ const Display = ({ countriesData, isSelected }) => {
                 (
                     displayData.map((country)=>{
                         return(
-                            <div className="gridItem" key={country.altSpellings[0]}>
-                                <div>
-                                    <img className="gridImg" src={country.flags.png} alt={country.flags.alt}/>
+                            <Link to={`/${country.name.official}`} key={country.altSpellings[0]}>
+                                <div className="gridItem">
+                                    <div>
+                                        <img className="gridImg" src={country.flags.png} alt={country.flags.alt}/>
+                                    </div>
+                                    <div className="gridContent">
+                                        <h2>{country.name.official}</h2>
+                                        <p><span>Population:</span> {country.population.toLocaleString()}</p>
+                                        <p><span>Region: </span>{country.region}</p>
+                                        <p><span>Capital: </span>{country.capital}</p>
+                                    </div>
                                 </div>
-                                <div className="gridContent">
-                                    <h2>{country.name.official}</h2>
-                                    <p><span>Population:</span> {country.population.toLocaleString()}</p>
-                                    <p><span>Region: </span>{country.region}</p>
-                                    <p><span>Capital: </span>{country.capital}</p>
-                                </div>
-                            </div>
+                            </Link>
                         )
                     })
                 ):
@@ -61,17 +64,20 @@ const Display = ({ countriesData, isSelected }) => {
                 (
                     countriesData.map((country)=>{
                         return(
-                            <div className="gridItem" key={country.altSpellings[0]}>
-                                <div>
-                                    <img className="gridImg" src={country.flags.png} alt={country.flags.alt}/>
+                            <Link to={`/${country.name.official}`} key={country.altSpellings[0]}>
+
+                                <div className="gridItem">
+                                    <div>
+                                        <img className="gridImg" src={country.flags.png} alt={country.flags.alt}/>
+                                    </div>
+                                    <div className="gridContent">
+                                        <h2>{country.name.official}</h2>
+                                        <p><span>Population:</span> {country.population.toLocaleString()}</p>
+                                        <p><span>Region: </span>{country.region}</p>
+                                        <p><span>Capital: </span>{country.capital}</p>
+                                    </div>
                                 </div>
-                                <div className="gridContent">
-                                    <h2>{country.name.official}</h2>
-                                    <p><span>Population:</span> {country.population.toLocaleString()}</p>
-                                    <p><span>Region: </span>{country.region}</p>
-                                    <p><span>Capital: </span>{country.capital}</p>
-                                </div>
-                            </div>
+                            </Link>
                         )
                     })
 

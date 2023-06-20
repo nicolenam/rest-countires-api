@@ -159,6 +159,7 @@ h2{
 .gridItem{
 	border-radius: 7px;
 	box-shadow: 0 0 5px lightgrey;
+	cursor: pointer;
 }
 
 .gridImg{

@@ -1,10 +1,12 @@
 import './App.css';
 import axios from 'axios';
 import { useEffect, useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Dropdown from './components/Dropdown';
 import Header from "./components/Header";
 import Search from "./components/Search";
 import Display from './components/Display';
+import Details from './components/Details';
 
 function App() {
 
@@ -30,13 +32,21 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
-      <div className="filterContainer">
-        <Search setIsSelected={setIsSelected}/>
-        <Dropdown setIsSelected={setIsSelected}/>
+      <Router>
+        <Header />
+        <div className="filterContainer">
+          <Search setIsSelected={setIsSelected}/>
+          <Dropdown setIsSelected={setIsSelected}/>
+        </div>
+        <Routes>
+          <Route
+            path="/"
+            element={<Display countriesData={countriesData} isSelected={isSelected} />}
+          />
+          <Route path="/details/:country" element={<Details />} />
+        </Routes>
+      </Router>
       </div>
-        <Display countriesData={countriesData} isSelected={isSelected}/>
-    </div>
   );
 }
 
