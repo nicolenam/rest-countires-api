@@ -33,9 +33,9 @@ function App() {
       <Header />
       <div className="filterContainer">
         <Search />
-        <Dropdown />
+        <Dropdown setRegion={setRegion}/>
       </div>
-        <Display countriesData={countriesData}/>
+        <Display region={region} countriesData={countriesData}/>
     </div>
   );
 }
