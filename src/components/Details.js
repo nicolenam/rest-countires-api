@@ -47,6 +47,7 @@ const Details = () =>{
                     alt: data.altSpellings[1]
                   };
 
+                  console.log(details.borders)
                   setIsDetail(details);
             }
             catch (error) {
@@ -57,16 +58,17 @@ const Details = () =>{
     },[country])
 
     return(
+        <>
+        <Link to="/">
+            <p className="backBtn">&larr; back</p>
+        </Link>
         <div className="detailsContainer">
-            <Link to="/">
-                <p className="backBtn">&larr; back</p>
-            </Link>
             {
                 isDetail && (
                 <>
                     <img src={isDetail.url} alt={isDetail.alt}/>
                     <div className="detailsContent">
-                        <p>{isDetail.name}</p>
+                        <p className="detailName">{isDetail.name}</p>
                         <div className="columnContainer">
                             <div className="firstColumn">
                                 <p><span>Native Name:</span> {isDetail.nativeName}</p>
@@ -82,15 +84,26 @@ const Details = () =>{
                             </div>
                         </div>
                         {
-                            isDetail.borders &&
-                            <p><span>Border Countries:</span> {isDetail.borders.join(", ")}</p>
+                            <p><span>Border Countries: </span>  
+                            {
+                                isDetail.borders && (
+                                    
+                                    isDetail.borders.map((border)=>{
+                                        return(
+                                            <span key={border} className="detailsBorder">{border}</span>
+                                        )
+                                    })
+                                )
+                            }
+                            </p>
                         }
                     </div> 
                 </>
                 )
             }
-        
         </div>
+        </>
+
     )
 }
 
