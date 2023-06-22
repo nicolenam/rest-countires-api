@@ -39,7 +39,7 @@ function App() {
             path="/"
             element={
               <>
-                <div className="filterContainer">
+                <div className="filterContainer wrapper">
                   <Search setIsSelected={setIsSelected} />
                   <Dropdown setIsSelected={setIsSelected} />
                 </div>

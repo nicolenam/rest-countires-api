@@ -39,7 +39,7 @@ const Display = ({ countriesData, isSelected }) => {
     },[isSelected]);
 
     return (
-        <div className="gridContainer">
+        <div className="gridContainer wrapper">
             {   isSelected ?
                 (
                     displayData.map((country)=>{

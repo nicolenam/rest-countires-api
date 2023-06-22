@@ -62,7 +62,7 @@ const Details = () =>{
         <Link to="/">
             <p className="backBtn">&larr; back</p>
         </Link>
-        <div className="detailsContainer">
+        <div className="detailsContainer wrapper">
             {
                 isDetail && (
                 <>
@@ -84,7 +84,7 @@ const Details = () =>{
                             </div>
                         </div>
                         {
-                            <p><span>Border Countries: </span>  
+                            <p className="borderCountries"><span>Border Countries: </span>  
                             {
                                 isDetail.borders && (
                                     
