@@ -8,6 +8,7 @@ const Display = ({ countriesData, isSelected }) => {
 
     useEffect(()=>{
 
+        console.log(isSelected);
         const getRegionData = async () =>{
     
             try{
@@ -30,7 +31,7 @@ const Display = ({ countriesData, isSelected }) => {
             }
         }
 
-        if(isSelected === "america" || isSelected === "africa" || isSelected === "asia" || isSelected === "europe"){
+        if(isSelected === "America" || isSelected === "Africa" || isSelected === "Asia" || isSelected === "Europe"){
             getRegionData();
         }else if(isSelected){
             getCountryData();

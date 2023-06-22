@@ -5,7 +5,7 @@ import { faMoon } from '@fortawesome/free-solid-svg-icons';
 
 const Header = () =>{
 
-    const [ isDarkMode, setisDarkMode ] = useState(true);
+    const [ isDarkMode, setisDarkMode ] = useState(false);
 
     const handleClick = () =>{
         setisDarkMode(!isDarkMode);
@@ -18,12 +18,12 @@ const Header = () =>{
             {
                 isDarkMode ?
                 <>
-                    <FontAwesomeIcon icon={faSun} />
+                    <FontAwesomeIcon icon={faMoon} />
                     <p>Dark Mode</p>  
                 </>
                 :
                 <>
-                    <FontAwesomeIcon icon={faMoon} />
+                    <FontAwesomeIcon icon={faSun} />
                     <p>Light Mode</p>
                 </>
             }

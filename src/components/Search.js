@@ -4,7 +4,6 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 const Search = ({setIsSelected}) =>{
 
     const handleChange = (e) =>{
-
         setIsSelected(e.target.value);
     }
 
