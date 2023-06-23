@@ -11,6 +11,7 @@ import Details from './components/Details';
 function App() {
 
   const [countriesData, setCountriesData] = useState(null);
+  const [ isDarkMode, setisDarkMode ] = useState(false);
   const [isSelected, setIsSelected] = useState("");
 
   useEffect(()=>{
@@ -32,22 +33,22 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
+      <Header setisDarkMode={setisDarkMode} isDarkMode={isDarkMode}/>
       <Router>
         <Routes>
           <Route
             path="/"
             element={
               <>
-                <div className="filterContainer wrapper">
-                  <Search setIsSelected={setIsSelected} />
+                <div className={`${isDarkMode && "darkMode"} wrapper filterContainer`}>
+                  <Search setIsSelected={setIsSelected} isDarkMode={isDarkMode}/>
                   <Dropdown setIsSelected={setIsSelected} />
                 </div>
-                <Display countriesData={countriesData} isSelected={isSelected} />
+                <Display countriesData={countriesData} isSelected={isSelected} isDarkMode={isDarkMode}/>
               </>
             }
           />
-          <Route path="/details/:country" element={<Details />} />
+          <Route path="/details/:country" element={<Details isDarkMode={isDarkMode}/>} />
         </Routes>
       </Router>
       </div>

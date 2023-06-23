@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
-const Search = ({setIsSelected}) =>{
+const Search = ({setIsSelected, isDarkMode}) =>{
 
     const handleChange = (e) =>{
         setIsSelected(e.target.value);
@@ -13,7 +13,7 @@ const Search = ({setIsSelected}) =>{
                 <label className="sr-only">Search for a country</label>
                 <div className="searchContainer">
                     <FontAwesomeIcon className="searchIcon" icon={faMagnifyingGlass} />
-                    <input className="search" placeholder="Search for a country" onChange={handleChange}></input>
+                    <input className={` ${isDarkMode && "headerDarkMode searchTxt" } search`} placeholder="Search for a country" onChange={handleChange}></input>
                 </div>
             </form>
         </main>

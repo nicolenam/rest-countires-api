@@ -87,7 +87,16 @@ h2{
 }
 
 .darkMode{
-	background-color: #000;
+	background-color: #222d37;
+	color: #fff;
+}
+
+.headerDarkMode{
+	background-color: #2c3743;
+	color: #fff;
+}
+
+.searchTxt::placeholder{
 	color: #fff;
 }
 
@@ -102,7 +111,7 @@ h2{
 	border: none;
 	border-radius: 5px;
 	padding: 10px 50px;
-	box-shadow: 0 0 5px lightgrey;
+	box-shadow: 0 0 3px lightgrey;
 }
 
 .search:focus{
@@ -127,7 +136,7 @@ h2{
 
 .dropdown .dropdownBtn{
 	padding: 10px;
-	box-shadow: 0 0 5px lightgrey;
+	box-shadow: 0 0 3px lightgrey;
 	border-radius: 5px;
 	display: flex;
 	align-items: center;
@@ -140,7 +149,7 @@ h2{
 	top: 110%;
 	left: 0;
 	padding: 10px;
-	box-shadow: 0 0 5px lightgrey;
+	box-shadow: 0 0 3px lightgrey;
 	width: 85%;
 	background-color: #fff;
 }
@@ -160,7 +169,7 @@ h2{
 
 .gridItem{
 	border-radius: 7px;
-	box-shadow: 0 0 5px lightgrey;
+	box-shadow: 0 0 3px lightgrey;
 	cursor: pointer;
 }
 
@@ -188,11 +197,10 @@ h2{
 
 .backBtn{
 	padding: 10px 20px;
-	box-shadow: 0 0 5px lightgrey;
+	box-shadow: 0 0 3px lightgrey;
 	width: 100px;
 	text-align: center;
 	border-radius: 5px;
-	margin: 40px 100px;
 }
 
 .detailsContainer {
@@ -219,7 +227,6 @@ h2{
 .detailName {
 	font-weight: 700;
 	font-size: 50px;
-
 }
 
 .detailsContent p {
@@ -232,7 +239,7 @@ h2{
 
 
 .detailsBorder{
-	box-shadow: 0 0 5px lightgrey;
+	box-shadow: 0 0 3px lightgrey;
 	padding: 10px;
 	margin: 10px;
 }

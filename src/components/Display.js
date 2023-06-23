@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-const Display = ({ countriesData, isSelected }) => {
+const Display = ({ countriesData, isSelected, isDarkMode }) => {
 
     const [ displayData, setDisplayData ] = useState([]);
 
@@ -40,7 +40,8 @@ const Display = ({ countriesData, isSelected }) => {
     },[isSelected]);
 
     return (
-        <div className="gridContainer wrapper">
+        <div className={`${isDarkMode && "darkMode"} wrapper gridContainer`}>
+        
             {   isSelected ?
                 (
                     displayData.map((country)=>{
