@@ -26,6 +26,7 @@ const Details = ({isDarkMode}) =>{
 
                 for( const key in data.name.nativeName){
                     nativeName = data.name.nativeName[key].common
+                    console.log(nativeName)
                 }
 
                 for( const key in data.languages){
@@ -47,7 +48,6 @@ const Details = ({isDarkMode}) =>{
                     alt: data.altSpellings[1]
                   };
 
-                  console.log(details.borders)
                   setIsDetail(details);
             }
             catch (error) {
@@ -90,7 +90,7 @@ const Details = ({isDarkMode}) =>{
                                 {
                                     isDetail.borders ? 
                                         
-                                        isDetail.borders.map((border)=>{
+                                        isDetail.borders.slice(0,5).map((border)=>{
                                             return(
                                                 <span key={border} className="detailsBorder">{border}</span>
                                             )

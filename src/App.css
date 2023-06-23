@@ -165,6 +165,7 @@ h2{
 	display: grid;
 	grid-template-columns: repeat(4, minmax(0, 1fr));
 	gap: 20px;
+	height: 100vh;
 }
 
 .gridItem{
@@ -210,8 +211,8 @@ h2{
 
 .detailsContainer {
 	display: flex;
-	align-items: center;
 	justify-content: space-between;
+	height: 100vh;
 }
 
 .detailsContainer img{
@@ -222,6 +223,7 @@ h2{
 
 .detailsContent {
 	width: 600px;
+	margin-top: 60px;
 }
 
 .columnContainer {
@@ -232,6 +234,7 @@ h2{
 .detailName {
 	font-weight: 700;
 	font-size: 50px;
+	margin-bottom: 12px;
 }
 
 .detailsContent p {
