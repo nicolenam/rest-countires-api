@@ -134,6 +134,8 @@ h2{
 	position: relative;
 }
 
+
+
 .dropdown .dropdownBtn{
 	padding: 10px;
 	box-shadow: 0 0 3px lightgrey;
@@ -154,7 +156,23 @@ h2{
 	background-color: #fff;
 }
 
+.dropdownBack{
+	background-color: #2c3743;
+	color: #fff;
+	position: absolute;
+	top: 110%;
+	left: 0;
+	padding: 10px;
+	box-shadow: 0 0 3px lightgrey;
+	width: 85%;
+}
+
 .dropdown .dropdownContent .dropdownItem{
+	padding: 10px;
+	cursor: pointer;
+}
+
+.darkDropDown{
 	padding: 10px;
 	cursor: pointer;
 }

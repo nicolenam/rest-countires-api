@@ -42,7 +42,7 @@ function App() {
               <>
                 <div className={`${isDarkMode && "darkMode"} wrapper filterContainer`}>
                   <Search setIsSelected={setIsSelected} isDarkMode={isDarkMode}/>
-                  <Dropdown setIsSelected={setIsSelected} />
+                  <Dropdown setIsSelected={setIsSelected} isDarkMode={isDarkMode}/>
                 </div>
                 <Display countriesData={countriesData} isSelected={isSelected} isDarkMode={isDarkMode}/>
               </>

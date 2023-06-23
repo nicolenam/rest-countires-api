@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 
-const Dropdown = ({setIsSelected}) =>{
+const Dropdown = ({setIsSelected, isDarkMode}) =>{
 
     const [isOpen, setIsOpen] = useState(false);
     const [selected, setSelected] = useState("Filter by Region");
@@ -20,25 +20,27 @@ const Dropdown = ({setIsSelected}) =>{
     }
 
     return(
-        <div className="dropdown">
+        <div className={` ${isDarkMode && "headerDarkMode"} dropdown`}>
             <div className="dropdownBtn" onClick={handleClick}>{selected}
                 <FontAwesomeIcon icon={faCaretDown} />
             </div>
             {
                 isOpen && (
-                    <div className="dropdownContent" onClick={handleSelected}>
-                        <div className="dropdownItem" id="Africa">
+                    <div className={`${isDarkMode ? "dropdownBack" : "dropdownContent"}`} onClick={handleSelected}>
+                    
+                        <div className={` ${isDarkMode ? "darkDropDown" : "dropdownItem" }`} id="Africa">
                             Africa
                         </div>
-                        <div className="dropdownItem" id="America">
+                        <div className={` ${isDarkMode ? "darkDropDown" : "dropdownItem" }`} id="America">
                             America
                         </div>
-                        <div className="dropdownItem" id="Asia">
+                        <div className={` ${isDarkMode ? "darkDropDown" : "dropdownItem" }`} id="Asia">
                             Asia
                         </div>
-                        <div className="dropdownItem" id="Europe">
+                        <div className={` ${isDarkMode ? "darkDropDown" : "dropdownItem" }`} id="Europe">
                             Europe
                         </div>
+
                         {/* <div className="dropdownItem" id="oceana">
                             Oceana
                         </div> */}
