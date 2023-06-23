@@ -60,7 +60,7 @@ const Details = ({isDarkMode}) =>{
     return(
         <div className={` ${isDarkMode && "darkMode"}`}>
             <Link to="/">
-                <div className="wrapper">
+                <div className="backBtnContainer wrapper">
                     <p className="backBtn">&larr; back</p>
                 </div>
             </Link>
